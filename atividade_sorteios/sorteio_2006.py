@@ -2,14 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 
-class Web_2022:
+class Web_2006:
     def __init__(self):
-        self.site = 'https://asloterias.com.br/resultados-da-mega-sena-2022'
+        self.site = 'https://asloterias.com.br/resultados-da-mega-sena-2006'
         self.map = {
-            'numero_do_jogo2022': {
+            'numero_do_jogo2006': {
                 'xpath': '/html/body/main/div[2]/div/div/div[1]/strong[$terceiro$]'
             },
-            'ano2022': {
+            'ano2006': {
                 'xpath': '/html/body/main/div[2]/div/div/div[1]/span[%third%]'
             }
         }
@@ -22,8 +22,8 @@ class Web_2022:
         sleep(5)
         k = 1
         for i in range(4, 114):
-            print(self.driver.find_element(By.XPATH, self.map['numero_do_jogo2022']['xpath'].replace('$terceiro$', f'{i}')).text, end='    ')
+            print(self.driver.find_element(By.XPATH, self.map['numero_do_jogo2006']['xpath'].replace('$terceiro$', f'{i}')).text, end='    ')
             for j in range(6):
-                print(self.driver.find_element(By.XPATH, self.map['ano2022']['xpath'].replace('%third%', f'{k}')).text, end=' ')
+                print(self.driver.find_element(By.XPATH, self.map['ano2006']['xpath'].replace('%third%', f'{k}')).text, end=' ')
                 k += 1
             print('')
