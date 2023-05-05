@@ -1,7 +1,9 @@
 from tkinter import *
 from tkinter import ttk
+import _mysql_connector
 
 janela = Tk()
+
 
 class Aplication():
     def __init__(self):
@@ -26,7 +28,7 @@ class Aplication():
         #place = posição especifica/fica estático
         self.frame_1.place(relx= 0.02, rely= 0.02, relwidth= 0.96, relheight= 0.46)
         #RELX = largura (esquerdo > direito)
-        #RELXY = altura (esquerdo > direito)
+        #RELXY = altura
         #RELWIDTH = largura da tela
         #RELHEIGHT = altura da tela
 
@@ -46,45 +48,30 @@ class Aplication():
         self.bt_novo = Button(self.frame_1, text="Novo",
                               bd=3, bg='#20B2AA', fg='white')
         self.bt_novo.place(relx=0.5, rely=0.1, relwidth=0.1, relheight=0.15)
-        #botão alterar
-        self.bt_alterar = Button(self.frame_1, text="Alterar",
-                                 bd=3, bg='#20B2AA', fg='white')
-        self.bt_alterar.place(relx=0.6, rely=0.1, relwidth=0.1, relheight=0.15)
+
         #botão apagar
         self.bt_apagar = Button(self.frame_1, text="Apagar",
                                 bd=3, bg='#20B2AA', fg='white')
         self.bt_apagar.place(relx=0.7, rely=0.1, relwidth=0.1, relheight=0.15)
 #label concurso
-        self.lb_codigo = Label(self.frame_1, text="Mês",
+        self.lb_codigo = Label(self.frame_1, text="Concurso",
                                bg = 'light blue', fg='white', font= 'bold')
-        self.lb_codigo.place(relx= 0.25, rely= 0.65)
+        self.lb_codigo.place(relx= 0.39, rely= 0.45)
         self.codigo_entry = Entry(self.frame_1)
-        self.codigo_entry.place(relx= 0.25, rely= 0.75, relwidth= 0.1)
-#label ano
-        self.lb_ano = Label(self.frame_1, text="Concurso",
-                            bg = 'light blue', fg='white', font= 'bold')
-        self.lb_ano.place(relx=0.04, rely=0.35)
-        self.ano_entry = Entry(self.frame_1)
-        self.ano_entry.place(relx=0.05, rely=0.45, relwidth=0.1)
+        self.codigo_entry.place(relx= 0.35, rely= 0.55, relwidth= 0.2, relheight=0.20)
 
-        self.lb_mes = Label(self.frame_1, text="Ano",
-                            bg = 'light blue', fg='white', font= 'bold')
-        self.lb_mes.place(relx=0.05, rely=0.65)
-        self.mes_entry = Entry(self.frame_1)
-        self.mes_entry.place(relx=0.05, rely=0.75, relwidth=0.1)
     def lista_frame2(self):
         #Treeview = tabelinha com rolagem
-        self.listaCli = ttk.Treeview(self.frame_2, height=3, columns=("col1", "col2", "col3", "col4", "col5", "col6", "col7", "col8", "col9"))
+        self.listaCli = ttk.Treeview(self.frame_2, height=3, columns=("col1", "col2", "col3", "col4", "col5", "col6", "col7", "col8"))
         self.listaCli.heading("#0", text="")
         self.listaCli.heading("#1", text="Concurso")
         self.listaCli.heading("#2", text="Ano")
-        self.listaCli.heading("#3", text="Mês")
-        self.listaCli.heading("#4", text="1º")
-        self.listaCli.heading("#5", text="2º")
-        self.listaCli.heading("#6", text="3º")
-        self.listaCli.heading("#7", text="4º")
-        self.listaCli.heading("#8", text="5º")
-        self.listaCli.heading("#9", text="6º")
+        self.listaCli.heading("#3", text="1º")
+        self.listaCli.heading("#4", text="2º")
+        self.listaCli.heading("#5", text="3º")
+        self.listaCli.heading("#6", text="4º")
+        self.listaCli.heading("#7", text="5º")
+        self.listaCli.heading("#8", text="6º")
 
     #tamanho
         self.listaCli.column("#0", width=1)
@@ -96,7 +83,6 @@ class Aplication():
         self.listaCli.column("#6", width=10)
         self.listaCli.column("#7", width=10)
         self.listaCli.column("#8", width=10)
-        self.listaCli.column("#9", width=10)
 
         self.listaCli.place(relx=0.01, rely=0.1, relwidth=0.95, relheight= 0.85)
 
